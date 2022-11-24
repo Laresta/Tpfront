@@ -1,0 +1,74 @@
+#outils{
+    background-color:beige;
+    position: fixed;
+    right: 5px;
+    top: 5px;
+    display: flex;
+    flex-direction: column;
+    z-index:999;
+ }
+ 
+ #scene{
+   margin-top: 1em;
+    background-color: yellow;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+ }
+ 
+ #outils img{
+     width:32px;
+     height:32px;
+     margin:5px;
+ }
+ .papillon{
+    display:flex;
+    background-color:blue;
+    margin: 5px;
+    box-shadow: 10px 5px 5px rgb(148, 139, 139);
+ }
+ .papillon textarea{
+   border:none;
+   color: white;
+   box-sizing: border-box;
+   min-width: 100%;
+   max-width:100%;
+   min-height: 100%;
+   max-height: 100%;
+   background:transparent;
+ }
+ 
+.button_papillion{
+   position: fixed;
+   z-index: 55;
+}
+
+.button_papillion img{
+   width:16px;
+   height:16px;
+}
+
+.button_suppr{
+   right: 5px;
+}
+
+.button_droite{
+   bottom: 5px;
+   right: 5px;
+}
+.button_gauche{
+   bottom: 5px;
+   left: 5px;
+}
+
+@media screen and (width <= 762px) {
+   #outils img {
+      width: 60px;
+      height: 60px;
+   }
+
+   .papillon img{
+      width: 30px;
+      height: 30px;
+   }
+}

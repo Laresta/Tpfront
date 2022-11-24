@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<link rel="stylesheet" href="index.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body onload="demarrer()">
+	<div id="scene"></div>
+	<div id="outils">
+		<img src="../dist/zoom-in-svgrepo-com.svg" onclick="zoom_in();localStorage.setItem('coef_zoom',JSON.stringify(coef_zoom));"/>
+		<img src="../dist/zoom-out-svgrepo-com.svg" onclick="zoom_out();localStorage.setItem('coef_zoom',JSON.stringify(coef_zoom));"/>
+		<img id="ajout" onclick="ajouterPapillon('Hello BG!', null) ;sauvegarder();" src="../dist/add-svgrepo-com.svg" />
+	</div>
+  </body>
+  <script src="index.js"></script>
+</html>
+
