@@ -1,21 +1,38 @@
 <html>
     <head>
         <link rel="stylesheet" href="css.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    <body onload="ajouterScene()" onresize="ajouterScene()">
+    <body onload="demarrer();ajouterScene()" onresize="ajouterScene()">
         <div id="tools">
             <div class="horizontal">
-                <select id="selecteur"></select>
-                <img id="apercu"></img>
+                <select id="selecteur" name="selecteur" onchange="actualiserApercu()">
+                    <option value="choose a photo" selected>Choose a photo</option>
+                </select>
+                <div>
+                    <img id="apercu" onload="acuataliserPuzzle()"></img>
+                </div>
             </div>
             <div class="vertical">
-
+                <input id="nbrcol" type="number" name="nbrcol" min="2" onchange="verifSaisie(this) , actualiserTotal() , acuataliserPuzzle();">
+                <input id="nbrrow" type="number" name="nbrrow" min="2" onchange="verifSaisie(this), actualiserTotal(); acuataliserPuzzle();">
+                <div>
+                    <p>Nombre de pieces : <span id="nbrpieces"></span></p>
+                </div>
             </div>
             <div class="vertical">
-
+                <input type="number" name="difficulty">
+                <div id="score">
+                    <p> Score : <span id="score"></span></p>
+                </div>
             </div>
         </div>
-        <div id="scene"></div>
+        <div id="scene">
+            <div id="puzzle"></div>
+        </div>
     </body>
+    <script type="text/javascript">
+        tabimg = ["img1.jpg","img2.jpg","img3.jpg", "img4.jpg" , "img5.jpg"];
+    </script>
     <script src="js.js"></script>
 </html>

@@ -2,3 +2,50 @@ body{
     margin: 0px;
     padding: 0%;
 }
+
+#scene{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#tools{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.horizontal{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#apercu{
+    width: 25%;
+    margin: 5px;
+}
+
+#puzzle{
+    background-color: aqua;
+    position: relative;
+    
+}
+
+.vertical{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.piece{
+    position: absolute;
+    background-origin: border-box;
+}
+
+@media screen and (width <= 762px){
+    #tools {
+        flex-wrap: wrap;
+    }
+}
