@@ -95,6 +95,10 @@ function acuataliserPuzzle(){
         }
     }
     melangerPieceV1(allpiece , 100);
+    currentScore = 0;
+    initialScore(allpiece);
+    console.log(currentScore);
+
 }   
 
 function melangerPieceV1 (allpiece , nbrtour ){
@@ -109,6 +113,8 @@ function melangerPieceV1 (allpiece , nbrtour ){
 }
 
 function permuterPiece(pieceA , pieceB){
+    let okPieceA = pieceOk(pieceA);
+    let okPieceB = pieceOk(pieceB);
     let XtoB = pieceA.dataset.currentX ;
     let YtoB = pieceA.dataset.currentY;
     let XtoA = pieceB.dataset.currentX;
@@ -121,11 +127,17 @@ function permuterPiece(pieceA , pieceB){
     pieceA.style.left = XtoA;
     pieceB.style.top = YtoB;
     pieceB.style.left = XtoB;
-    if(pieceOk(pieceA)){
-        score ++;
+    if(pieceOk(pieceA) != okPieceA){
+        actualiserScore(false);
     }
-    if(pieceOk(pieceB)){
-        score ++ ;
+    else if(pieceOk(pieceA)) {
+        actualiserScore(true);
+    }
+    if(pieceOk(pieceB) != okPieceB){
+        actualiserScore(false);
+    }
+    else if (pieceOk(pieceB)){
+        actualiserScore(true);
     }
 }
 
@@ -146,4 +158,31 @@ function pieceOk(piece){
         return true;
     }
     return false;
+}
+
+function actualiserScore(change){
+    if (change){
+        if (currentScore == 0) {
+            currentScore = 0;
+        }
+        else{
+            currentScore --;
+        }
+    }
+    else {
+        currentScore ++;
+    }
+    let totalpiece  = parseInt(nbrcol.value) * parseInt(nbrrow.value) ;
+    if (isNaN(totalpiece)){
+        totalpiece = 0;
+    }
+    document.querySelector("#score").textContent = currentScore +" / "+ totalpiece;
+}
+
+function initialScore(allpiece){
+    console.log(allpiece);
+    allpiece.forEach(piece => {
+        console.log(!pieceOk(piece));
+        actualiserScore(!pieceOk(piece));
+    })
 }
